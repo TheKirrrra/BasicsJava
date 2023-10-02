@@ -8,9 +8,9 @@ public class Employee {
 
     private String name = "Incognito";
 
-    private int age = 18; // минимальный возраст для работы
+    private int age = 18; // минимальный возраст для работы.
 
-    private int salary = 450; // минимальная зарплата 450
+    private int salary = 450; // минимальная зарплата 450.
 
     public Employee(String name, int age, int salary) {
         setName(name);
@@ -36,14 +36,8 @@ public class Employee {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public int getSalary() {
-        return salary;
+    public String info() {
+        return "Имя работника - " + this.name + "\nВозраст работника - " + this.age + "\nЗарплата работника - " + this.salary;
     }
 
 
