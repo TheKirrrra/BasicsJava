@@ -36,14 +36,8 @@ public class Employee {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public int getSalary() {
-        return salary;
+    public String info() {
+        return "Имя работника - " + this.name + "\nВозраст работника - " + this.age + "\nЗарплата работника - " + this.salary;
     }
 
 

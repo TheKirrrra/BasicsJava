@@ -15,9 +15,8 @@ public class info {
        emp.setSalary(4500);
 
 
+        System.out.println(emp.info());
 
-        System.out.println("Имя работника - " + emp.getName());
-        System.out.println("Возраст работника - " + emp.getAge());
-        System.out.println("Зарплата работника - " + emp.getSalary());
+
 }
 }
