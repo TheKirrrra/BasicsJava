@@ -6,7 +6,7 @@ public class Dog20 {
 
     private int increasePerOneTraining;
     private int maxJumpHeight;
-    static int counter; //подсчет количества собак, отсчет начинается с 0
+    private static int counter; //подсчет количества собак, отсчет начинается с 0
     private static int counterJumps; //общее количество прыжков собак
     private final int id; //какая по счет собака "создана"
 
@@ -78,6 +78,8 @@ public class Dog20 {
     public String toString() {
         return "id: " + id + " Dog " + name + "; current jump: " + jumpHeight + "\n Общее число прыжков всех собак: " + counterJumps;
     }
+
+    public int getCounter() {return counter;}
 
 
 }

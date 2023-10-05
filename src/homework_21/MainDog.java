@@ -6,6 +6,7 @@ public class MainDog {
         Dog20 dog = new Dog20("Max", 54);
 
         System.out.println(dog.toString());
+        System.out.println(dog.getCounter());
 
 //        System.out.println("Собака, которую зовут: " + dog.getName());
 //        System.out.println("Собака умеет прыгать на: " + dog.getJumpHeight()
