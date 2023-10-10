@@ -4,9 +4,9 @@ package homework_22;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static homework_22.main.*;
+import static homework_22.ArrayUtils.*;
 
-public class binear {
+public class TestArrayUtils {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

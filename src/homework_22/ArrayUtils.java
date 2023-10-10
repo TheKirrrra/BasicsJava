@@ -2,7 +2,7 @@ package homework_22;
 
 import java.util.Random;
 
-public class main {
+public class ArrayUtils {
 
     public static int binearSearch (int[] array, int searchMe) {
         int beginIndex = 0;
