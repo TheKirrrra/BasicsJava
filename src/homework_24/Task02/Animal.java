@@ -5,14 +5,12 @@ public class Animal {
     String name;
     int age;
 
+
+
     public Animal(String species, String name, int age) {
         this.species = species;
         this.name = name;
         this.age = age;
-    }
-
-    public Animal() {
-
     }
 
     public void wakeUP() {
@@ -47,5 +45,9 @@ public class Animal {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String info() {
+        return "{" + name + "; Возраст: " + age;
     }
 }
