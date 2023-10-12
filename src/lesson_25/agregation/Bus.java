@@ -30,6 +30,8 @@ public class Bus {
     }
 
     public boolean takePassenger(Passenger passenger) {
+        if (passenger.getTicketNumber() != null) return false;
+
         if (amountPassengers < capacity) {
             passenger.setTicketNumber(generateTicket(passenger.getId()));
             passengers[amountPassengers++] = passenger;
@@ -46,11 +48,13 @@ public class Bus {
         int indexPassenger = isPassengerInBus((passenger.getId()));
 
         if (indexPassenger >= 0) {
-            //TODO надо сдвигать пассажиров с индексами больше indexPassenger
-            passengers[indexPassenger] = null;
+            for (int i = indexPassenger; i < amountPassengers; i++) {
+                passengers[i] = passengers[i + 1];
+            }
             passenger.setTicketNumber(null);
+            passengers[amountPassengers - 1] = null;
+
             amountPassengers--;
-            sortArray(passengers);
 
             return true;
         }
