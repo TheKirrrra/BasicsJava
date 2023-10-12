@@ -4,15 +4,15 @@ public class Human {
     private final int speed;
     private final int relax;
 
-    private final String type;
+    private String type;
 
 
 
 
-    public Human(String type, int speed, int relax) {
+    public Human(int speed, int relax) {
         this.speed = speed;
         this.relax = relax;
-        this.type = type;
+        this.type = "Обычный чел";
     }
 
     public void run() {
@@ -23,4 +23,7 @@ public class Human {
         System.out.println("Ему нужно отдохнуть: " + relax + " минут." );
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 }
