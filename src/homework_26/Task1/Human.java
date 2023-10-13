@@ -1,6 +1,6 @@
 package homework_26.Task1;
 
-public class Human {
+public class Human extends Runner{
     private final int speed;
     private final int relax;
 
