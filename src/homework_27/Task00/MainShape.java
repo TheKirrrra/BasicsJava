@@ -20,7 +20,6 @@ public class MainShape {
         shapes[2] = rectangle;
 
         for (int i = 0; i < shapes.length; i++) {
-
             shapes[i].square(tempSquare);
             sumSquare = sumSquare + tempSquare;
             shapes[i].perimeter(sumPerimeter);
