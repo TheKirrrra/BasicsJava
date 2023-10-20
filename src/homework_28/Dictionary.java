@@ -25,24 +25,9 @@ translator.translate(words); // {"Привет", "Пока", "Java"}
 Он переводит входной набор слов по КОНКРЕТНОМУ словарю.
  */
 public class Dictionary {
-    public class Translator {
-
-        private final String word;
-
-        public Translator(String word) {
-            this.word = word;
-        }
-
-        public void translate() {
-            for (int i = 0; i < count; i++) {
-                DictionaryPair current = dictionaryPairs[i];
-                System.out.println(word + " " + current);
-            }
-        }
-    }
 
     public static class DictionaryPair {
-        private String englishWord;
+        private final String englishWord;
         private String russianWord;
 
         public DictionaryPair(String englishWord, String russianWord) {
@@ -56,6 +41,24 @@ public class Dictionary {
                     "englishWord='" + englishWord + '\'' +
                     ", russianWord='" + russianWord + '\'' +
                     '}';
+        }
+    }
+
+    public class Translator {
+
+        public String[] translate(String[] words) {
+            String[] strings = new String[words.length];
+            for (int i = 0; i < words.length; i++) {
+                DictionaryPair current = dictionaryPairs[i];
+                if (count > i) {
+                    if (current.russianWord.equals(words[i])) {
+                        strings[i] = current.englishWord;
+                    }
+                } else {
+                    strings[i] = words[i];
+                }
+            }
+            return strings;
         }
     }
 
@@ -79,7 +82,6 @@ public class Dictionary {
         }
 
         DictionaryPair newDictionaryPair = new DictionaryPair(englishWord, russianWord);
-
         dictionaryPairs[count] = newDictionaryPair;
         count++;
     }
