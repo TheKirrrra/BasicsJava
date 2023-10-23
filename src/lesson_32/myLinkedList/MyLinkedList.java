@@ -1,14 +1,13 @@
 package lesson_32.myLinkedList;
 
-import lesson_32.Queue;
-
-public class MyLinkedList<T>  {
+public class MyLinkedList<T> implements Queue<T>, MyList<T> {
 
     private int size;
 
     private Node<T> first; //Ссылка на 1-ый вагон
     private Node<T> last; //Ссылка на 2-ой вагон
 
+    @Override
     public void add(T value) { // Метод добавляет элемент в конец списка
         if (first == null) {
             //не существует ни одного узла
@@ -34,7 +33,7 @@ public class MyLinkedList<T>  {
         size++;
     }
 
-    // @Override
+    @Override
     public void addLast(T value) {
         add(value);
     }
@@ -56,7 +55,7 @@ public class MyLinkedList<T>  {
         size++;
     }
     // Удалить самый(первый) левый узел
-    // @Override
+    @Override
     public T remove() {
         if (size == 0) return null;
 
@@ -78,12 +77,12 @@ public class MyLinkedList<T>  {
         return value;
     }
 
-    // @Override
+    @Override
     public T removeFirst() {
         return remove();
     }
 
-    // @Override
+    @Override
     public T removeLast() {
         if (size == 0) return null;
         T value;
@@ -107,12 +106,12 @@ public class MyLinkedList<T>  {
         return value;
     }
 
-    // @Override
+    @Override
     public T getFirst() {
         return (first == null ? null : first.value);
     }
 
-    // @Override
+    @Override
     public T getLast() {
         //TODO переписать, если в листе только 1 элемент, вернуть его значение
         T value = null;
@@ -122,24 +121,24 @@ public class MyLinkedList<T>  {
         return value;
     }
 
-    // @Override
+    @Override
     public void addAll(T... values) {
         for (T value : values) {
             add(value);
         }
     }
 
-    // @Override
+    @Override
     public int size() {
         return size;
     }
 
-    // @Override
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // @Override
+    @Override
     public int indexOf(T value) {
         int index = 0;
             Node<T> cursor = first;
@@ -156,7 +155,7 @@ public class MyLinkedList<T>  {
         return -1;
     }
 
-    // @Override
+    @Override
     public int lastIndexOf(T value) {
         if (size == 0) { return -1;}
         int index = size - 1;
@@ -176,20 +175,90 @@ public class MyLinkedList<T>  {
         return -1;
     }
 
-    // @Override
+    @Override
     public boolean contains(T value) {
-        return false;
+        if (indexOf(value) != -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    // @Override
+    @Override
     public T[] toArray() {
-        return null;
+        T[] array = (T[]) new Object[size()];
+
+        int index = 0;
+        for (T element : ) {
+            array[index++] = element;
+        }
+
+        return array;
     }
 
 
+    @Override
+    public boolean remove(T value) {
+        int index = indexOf(value);
+        remove(index);
+        return index >= 0;
+    }
 
+    @Override
+    public T remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
 
-    // @Override
+        if (index == 0) {
+            first = first.next;
+            if (first != null) {
+                first.previous = null;
+            } else {
+                last = null;
+            }
+        } else if (index == size - 1) {
+            last = last.previous;
+            if (last != null) {
+                last.next = null;
+            } else {
+                first = null;
+            }
+        } else {
+            Node<T> current = first;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            current.previous.next = current.next;
+            current.next.previous = current.previous;
+        }
+        size--;
+        return null;
+
+    }
+
+    @Override
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node<T> current;
+        if (index < size / 2) {
+            current = first;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+        } else {
+            current = last;
+            for (int i = size - 1; i > index; i--) {
+                current = current.previous;
+            }
+        }
+        return current.value;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         if (first != null) {
@@ -215,7 +284,7 @@ public class MyLinkedList<T>  {
             this.previous = previous;
             this.next = next;
         }
-        // @Override
+        @Override
         public String toString() {
             return "Node{" +
                     "value=" + (value != null ? value : "null") +
