@@ -10,7 +10,7 @@ public interface MyList<T> {
     int indexOf(T value);
 
     int lastIndexOf(T value);
-        // содержит ли список элемено со значением value
+    // содержит ли список элемент со значением value
     boolean contains(T value);
     // вернуть массив из элементов списка
     T[] toArray();
