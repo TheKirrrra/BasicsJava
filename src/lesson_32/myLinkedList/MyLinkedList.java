@@ -189,7 +189,7 @@ public class MyLinkedList<T> implements Queue<T>, MyList<T> {
         T[] array = (T[]) new Object[size()];
 
         int index = 0;
-        for (T element : this) {
+        for (T element : ) {
             array[index++] = element;
         }
 
