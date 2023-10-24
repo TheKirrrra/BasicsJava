@@ -20,6 +20,10 @@ public class ArrayListApp {
 
         System.out.println(stringList);
 
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        myArrayList.addAll(1,2,3,4,5,6);
+
+
 
     }
 }
