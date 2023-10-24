@@ -1,11 +1,42 @@
 package lesson_32.myLinkedList;
 
-public class MyLinkedList<T> implements Queue<T>, MyList<T> {
+import java.lang.reflect.Array;
+import java.util.Iterator;
+
+public class MyLinkedList<T> implements Queue<T>, MyList<T>, Iterable<T> {
 
     private int size;
 
     private Node<T> first; //Ссылка на 1-ый вагон
     private Node<T> last; //Ссылка на 2-ой вагон
+
+    @Override
+    public Iterator<T> iterator() {
+        return new MyIterator();
+    }
+
+    private class MyIterator implements Iterator<T> {
+
+        Node<T> item;
+
+        public MyIterator() {
+            this.item = first;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return item != null;
+        }
+
+        @Override
+        public T next() { // Возвращает значение
+            T value = item.value;
+            item = item.next;
+            return value;
+        }
+    }
+
+
 
     @Override
     public void add(T value) { // Метод добавляет элемент в конец списка
@@ -186,14 +217,16 @@ public class MyLinkedList<T> implements Queue<T>, MyList<T> {
 
     @Override
     public T[] toArray() {
-        T[] array = (T[]) new Object[size()];
-
+        if (first == null) return (T[])new Object[0];
+        T[] result = (T[]) Array.newInstance(first.value.getClass(),size);
+        Node<T> cursor = first;
         int index = 0;
-        for (T element : ) {
-            array[index++] = element;
+        while (cursor != null) {
+            result[index++] = cursor.value;
+            cursor = cursor.next;
         }
 
-        return array;
+        return result;
     }
 
 
