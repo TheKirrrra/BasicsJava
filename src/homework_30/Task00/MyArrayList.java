@@ -168,6 +168,9 @@ public class MyArrayList<T> implements MyList<T> {
     public void trim() {
         array = toArray();
     }
+
+
+
 }
 
 
