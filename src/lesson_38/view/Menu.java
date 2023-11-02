@@ -19,6 +19,9 @@ public class Menu {
         while (true) {
             System.out.println("1. Регистрация");
             System.out.println("2. Показать всех пользователей");
+            System.out.println("3. Добавить продукт");
+            System.out.println("4. Посмотреть продукты");
+            System.out.println("5. Оформить заказ");
             System.out.println("0. Выход");
 
             int command = scanner.nextInt();

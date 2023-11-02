@@ -30,29 +30,11 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void addAll(T... values) {
-        /* могу обращаться как с массивом (перебирать по индексам)
-        for (int i = 0; i < ints.length; i++) {
-            ints[i]
-        }
-         */
-        // ints[0] = 100;
 
         for (T value : values) {
             add(value);
         }
     }
-
-    /* не используем
-    public void addRandomValues(int count, int bound) {
-        for (int i = 0; i < count; i++) {
-            add(random.nextInt(bound));
-        }
-    }
-
-    public void addRandomValues(int count) {
-        addRandomValues(count, 101);
-    }
-     */
 
     private void expandArray() {
 //        int[] newArray = Arrays.copyOf(array, array.length * 2);
@@ -72,9 +54,6 @@ public class MyArrayList<T> implements MyList<T> {
         return result;
     }
 
-    //    public int length() {
-//        return cursor;
-//    }
     @Override
     public int size() {
         return cursor;
@@ -82,11 +61,9 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public int indexOf(T value) {
-        // 1. Перебрать массив, сравнить элементы, вернуть индекс
-        // Если совпадений нет - вернуть минус 1.
 
         for (int i = 0; i < cursor; i++) {
-//            if (array[i] == value) return i;
+
             if (array[i].equals(value)) return i;
         }
         return -1;
@@ -103,7 +80,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean contains(T value) {
-        return indexOf(value) >= 0; //переиспользуем уже написанный код (метод)
+        return indexOf(value) >= 0;
     }
 
     @Override
@@ -123,14 +100,6 @@ public class MyArrayList<T> implements MyList<T> {
 
         T[] result = (T[])new Object[array.length - 1];
 
-        /* // Option1
-        System.arraycopy(array, 0, result, 0, index);
-        System.arraycopy(array, index + 1, result, index, cursor - 1- index);
-        System.out.println(Arrays.toString(result));
-         */
-
-        //Option2
-//        for (int i = 0; i < cursor - 1; i++) {
         for (int i = 0; i < result.length; i++) {
             if (i < index) {
                 result[i] = array[i];
@@ -168,9 +137,6 @@ public class MyArrayList<T> implements MyList<T> {
     public void trim() {
         array = toArray();
     }
-
-
-
 }
 
 
