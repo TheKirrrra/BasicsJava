@@ -13,15 +13,6 @@ public class MainForTierList {
         System.out.println(list);
         System.out.println(list.lastIndexOf("1"));
 
-        for (String val: list) {
-
-        }
-
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()){
-            String val = iterator.next();
-        }
-
 
     }
 }
