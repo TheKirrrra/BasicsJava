@@ -4,17 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class task01 {
-    public static <T> List<T> arrayElements(List<T> list1, List<T> list2) {
-        List<T> result = new ArrayList<>();
-
-        for (T item : list1) {
-            if (list2.contains(item) && !result.contains(item)) {
-                result.add(item);
-            }
-        }
-
-        return result;
-    }
 
     public static void main(String[] args) {
         List<Integer> list1 = new ArrayList<>();
@@ -27,8 +16,10 @@ public class task01 {
         list2.add(7);
         list2.add(13);
 
-        List<Integer> arrayElementsList = arrayElements(list1, list2);
-        System.out.println("Список элементов в массивах: " + arrayElementsList);
+        list2.retainAll(list1);
+
+        System.out.println("Список элементов в массивах: " + list2);
+
     }
 }
 
