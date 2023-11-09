@@ -16,9 +16,15 @@ public class task01 {
         list2.add(7);
         list2.add(13);
 
-        list2.retainAll(list1);
 
-        System.out.println("Список элементов в массивах: " + list2);
+        List <Integer> result = new ArrayList<>(list1);
+        result.retainAll(list2);
+
+
+        System.out.println("Список элементов в массивах: " + result);
+
+        System.out.println("list1: " + list1);
+        System.out.println("list2: " + list2);
 
     }
 }
