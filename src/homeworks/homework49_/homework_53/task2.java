@@ -29,7 +29,7 @@ public class task2 {
 
         Stream<Person> personStream = person.stream()
                 .filter(person1 -> person1.getAge()>30)
-                .filter(person1 -> person1.getCity() == "Svarogov");
+                .filter(person1 -> person1.getCity().equals("Svarogov"));
 
         List<Person> personList = personStream.collect(Collectors.toList());
 
