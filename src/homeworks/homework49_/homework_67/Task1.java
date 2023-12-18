@@ -3,7 +3,7 @@ package homeworks.homework49_.homework_67;
 
 public class Task1 {
     private static final int TOTAL_RUNS = 20;
-    private static char nextChar = 'A';
+    private static volatile char nextChar = 'A';
     private static final Object lock = new Object();
 
     public static void main(String[] args) {
