@@ -25,6 +25,8 @@ public class Task1another {
         increaseThread.start();
         decreaseThread.start();
 
+
+
         System.out.println("Final counter value: " + counter);
     }
 }
