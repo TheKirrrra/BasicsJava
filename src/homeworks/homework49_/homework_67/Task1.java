@@ -9,9 +9,9 @@ public class Task1 {
     public static void main(String[] args) {
         Task1 printer = new Task1();
 
-        Thread threadA = new Thread(() -> printer.printA());
-        Thread threadB = new Thread(() -> printer.printB());
-        Thread threadC = new Thread(() -> printer.printC());
+        Thread threadA = new Thread(printer::printA);
+        Thread threadB = new Thread(printer::printB);
+        Thread threadC = new Thread(printer::printC);
 
         threadA.start();
         threadB.start();
